@@ -1,0 +1,23 @@
+extern event_api_s gEventAPI;
+extern cl_enginefunc_t gEngfuncs;
+extern float gVecAngle[3];
+extern DWORD g_dwEngineBuildnum;
+extern engine_studio_api_s IEngineStudio;
+extern SCREENINFO gScreenInfo;
+extern int  m_iScreenTexture;
+extern DWORD r_currententity;
+extern DWORD dwBoneTransform;
+
+int Initialize(struct cl_enginefuncs_s *pEnginefuncs, int iVersion);
+int HUD_Redraw(float time, int intermission);
+void HUD_Init();
+int HUD_VidInit(void);
+int HUD_Key_Event(int eventcode, int keynum, const char *pszCurrentBinding);
+void V_CalcRefdef(struct ref_params_s *pParams);
+int HUD_GetStudioModelInterface(int iVersion, struct r_studio_interface_s **ppStudioInterface, struct engine_studio_api_s *pEngineStudio);
+void HUD_DrawTransparentTriangles(void);
+int HUD_AddEntity(int iType, struct cl_entity_s *pEntity, const char *pszModel);
+void HUD_PostRunCmd(struct local_state_s *from, struct local_state_s *to, struct usercmd_s *cmd, int runfuncs, double time, unsigned int random_seed);
+int EngFunc_AddCommand(char *szCmds, void (*pFunction)(void));
+void HUD_DrawNormalTriangles(void);
+void CL_CameraOffset( float *ofs );
